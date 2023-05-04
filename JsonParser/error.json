@@ -1,0 +1,2327 @@
+{
+  "jsonrpc": "2.0",
+  "method": "textDocument/publishDiagnostics",
+  "params": {
+    "diagnostics": [
+      {
+        "code": "no_member_template",
+        "message": "In included file: no template named 'variant' in namespace 'std'",
+        "range": {
+          "end": {
+            "character": 27,
+            "line": 0
+          },
+          "start": {
+            "character": 9,
+            "line": 0
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 26,
+                  "line": 25
+                },
+                "start": {
+                  "character": 19,
+                  "line": 25
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Error occurred here"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "fatal_too_many_errors",
+        "message": "Too many errors emitted, stopping now",
+        "range": {
+          "end": {
+            "character": 0,
+            "line": 0
+          },
+          "start": {
+            "character": 0,
+            "line": 0
+          }
+        },
+        "relatedInformation": [],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "expected_expression",
+        "message": "Expected expression",
+        "range": {
+          "end": {
+            "character": 7,
+            "line": 11
+          },
+          "start": {
+            "character": 6,
+            "line": 11
+          }
+        },
+        "relatedInformation": [],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_function_in_init",
+        "message": "No matching constructor for initialization of 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 18,
+            "line": 14
+          },
+          "start": {
+            "character": 14,
+            "line": 14
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'eee::Object' (aka 'map<basic_string<char>, eee::Json>') to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'eee::Object' (aka 'map<basic_string<char>, eee::Json>') to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_subscript",
+        "message": "No viable overloaded operator[] for type 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 9,
+            "line": 15
+          },
+          "start": {
+            "character": 8,
+            "line": 15
+          }
+        },
+        "relatedInformation": [],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_conversion_in_cast",
+        "message": "No matching conversion for functional-style cast from 'int' to 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 33,
+            "line": 15
+          },
+          "start": {
+            "character": 19,
+            "line": 15
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_function_in_init",
+        "message": "No matching constructor for initialization of 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 15,
+            "line": 19
+          },
+          "start": {
+            "character": 14,
+            "line": 19
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "no_member",
+        "message": "No member named 'insert' in 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 15,
+            "line": 21
+          },
+          "start": {
+            "character": 9,
+            "line": 21
+          }
+        },
+        "relatedInformation": [],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "no_member",
+        "message": "No member named 'insert' in 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 15,
+            "line": 22
+          },
+          "start": {
+            "character": 9,
+            "line": 22
+          }
+        },
+        "relatedInformation": [],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_function_in_init",
+        "message": "No matching constructor for initialization of 'std::pair<std::string, eee::Json>' (aka 'pair<basic_string<char>, eee::Json>')",
+        "range": {
+          "end": {
+            "character": 19,
+            "line": 22
+          },
+          "start": {
+            "character": 16,
+            "line": 22
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 20,
+                  "line": 410
+                },
+                "start": {
+                  "character": 16,
+                  "line": 410
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: no known conversion from 'int' to 'const eee::Json' for 2nd argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 29,
+                  "line": 420
+                },
+                "start": {
+                  "character": 25,
+                  "line": 420
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '!_PCC<true, std::basic_string<char, std::char_traits<char>, std::allocator<char>>, eee::Json>::_ImplicitlyConvertiblePair()' was not satisfied [with _U1 = std::basic_string<char>, _U2 = eee::Json]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 486
+                },
+                "start": {
+                  "character": 1,
+                  "line": 486
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '__and_<std::__not_<std::is_reference<const char (&)[4]>>, std::is_pointer<eee::Json>, std::is_constructible<std::basic_string<char, std::char_traits<char>, std::allocator<char>>, const char (&)[4]>, std::__not_<std::is_constructible<std::basic_string<char, std::char_traits<char>, std::allocator<char>>, const char (&)[4]>>, std::is_convertible<const char (&)[4], std::basic_string<char, std::char_traits<char>, std::allocator<char>>>>::value' was not satisfied [with _U1 = const char (&)[4]]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 498
+                },
+                "start": {
+                  "character": 1,
+                  "line": 498
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '__and_<std::__not_<std::is_reference<const char (&)[4]>>, std::is_pointer<eee::Json>, std::is_constructible<std::basic_string<char, std::char_traits<char>, std::allocator<char>>, const char (&)[4]>, std::__not_<std::is_constructible<std::basic_string<char, std::char_traits<char>, std::allocator<char>>, const char (&)[4]>>, std::__not_<std::is_convertible<const char (&)[4], std::basic_string<char, std::char_traits<char>, std::allocator<char>>>>>::value' was not satisfied [with _U1 = const char (&)[4]]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 510
+                },
+                "start": {
+                  "character": 1,
+                  "line": 510
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '__and_<std::is_pointer<std::basic_string<char, std::char_traits<char>, std::allocator<char>>>, std::__not_<std::is_reference<int>>, std::is_constructible<eee::Json, int>, std::__not_<std::is_constructible<eee::Json, const int &>>, std::is_convertible<int, eee::Json>>::value' was not satisfied [with _U2 = int]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 522
+                },
+                "start": {
+                  "character": 1,
+                  "line": 522
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '__and_<std::is_pointer<std::basic_string<char, std::char_traits<char>, std::allocator<char>>>, std::__not_<std::is_reference<int>>, std::is_constructible<eee::Json, int>, std::__not_<std::is_constructible<eee::Json, const int &>>, std::__not_<std::is_convertible<int, eee::Json>>>::value' was not satisfied [with _U2 = int]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 15,
+                  "line": 533
+                },
+                "start": {
+                  "character": 11,
+                  "line": 533
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '_PCC<true, std::basic_string<char, std::char_traits<char>, std::allocator<char>>, eee::Json>::_MoveConstructiblePair()' was not satisfied [with _U1 = const char (&)[4], _U2 = int]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 24,
+                  "line": 542
+                },
+                "start": {
+                  "character": 20,
+                  "line": 542
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '_PCC<true, std::basic_string<char, std::char_traits<char>, std::allocator<char>>, eee::Json>::_MoveConstructiblePair()' was not satisfied [with _U1 = const char (&)[4], _U2 = int]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 20,
+                  "line": 194
+                },
+                "start": {
+                  "character": 16,
+                  "line": 194
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor not viable: requires 1 argument, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 20,
+                  "line": 195
+                },
+                "start": {
+                  "character": 16,
+                  "line": 195
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor not viable: requires 1 argument, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 22,
+                  "line": 437
+                },
+                "start": {
+                  "character": 18,
+                  "line": 437
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 24,
+                  "line": 446
+                },
+                "start": {
+                  "character": 20,
+                  "line": 446
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 15,
+                  "line": 552
+                },
+                "start": {
+                  "character": 11,
+                  "line": 552
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 24,
+                  "line": 562
+                },
+                "start": {
+                  "character": 20,
+                  "line": 562
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 199
+                },
+                "start": {
+                  "character": 1,
+                  "line": 199
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires 3 arguments, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 20,
+                  "line": 383
+                },
+                "start": {
+                  "character": 16,
+                  "line": 383
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires 0 arguments, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 29,
+                  "line": 395
+                },
+                "start": {
+                  "character": 25,
+                  "line": 395
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires 0 arguments, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 216
+                },
+                "start": {
+                  "character": 1,
+                  "line": 216
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires 4 arguments, but 2 were provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_conversion_in_cast",
+        "message": "No matching conversion for functional-style cast from 'int' to 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 19,
+            "line": 24
+          },
+          "start": {
+            "character": 8,
+            "line": 24
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_conversion_in_cast",
+        "message": "No matching conversion for functional-style cast from 'int' to 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 33,
+            "line": 24
+          },
+          "start": {
+            "character": 22,
+            "line": 24
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_conversion_in_cast",
+        "message": "No matching conversion for functional-style cast from 'int' to 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 47,
+            "line": 24
+          },
+          "start": {
+            "character": 36,
+            "line": 24
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_conversion_in_cast",
+        "message": "No matching conversion for functional-style cast from 'std::string' (aka 'basic_string<char>') to 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 36,
+            "line": 25
+          },
+          "start": {
+            "character": 8,
+            "line": 25
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_function_in_init",
+        "message": "No matching constructor for initialization of 'std::vector<eee::Json>'",
+        "range": {
+          "end": {
+            "character": 29,
+            "line": 26
+          },
+          "start": {
+            "character": 27,
+            "line": 26
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 563
+                },
+                "start": {
+                  "character": 6,
+                  "line": 563
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires at most 3 arguments, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 629
+                },
+                "start": {
+                  "character": 6,
+                  "line": 629
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 3 arguments, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 634
+                },
+                "start": {
+                  "character": 6,
+                  "line": 634
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 3 arguments, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 7,
+                  "line": 701
+                },
+                "start": {
+                  "character": 1,
+                  "line": 701
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor template not viable: requires at most 3 arguments, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 550
+                },
+                "start": {
+                  "character": 6,
+                  "line": 550
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires at most 2 arguments, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 618
+                },
+                "start": {
+                  "character": 6,
+                  "line": 618
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 2 arguments, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 653
+                },
+                "start": {
+                  "character": 6,
+                  "line": 653
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 2 arguments, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 672
+                },
+                "start": {
+                  "character": 6,
+                  "line": 672
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires at most 2 arguments, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 536
+                },
+                "start": {
+                  "character": 6,
+                  "line": 536
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires single argument '__a', but 4 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 595
+                },
+                "start": {
+                  "character": 6,
+                  "line": 595
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires single argument '__x', but 4 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 614
+                },
+                "start": {
+                  "character": 6,
+                  "line": 614
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 1 argument, but 4 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 525
+                },
+                "start": {
+                  "character": 6,
+                  "line": 525
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 4 were provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_function_in_init",
+        "message": "No matching constructor for initialization of 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 16,
+            "line": 27
+          },
+          "start": {
+            "character": 14,
+            "line": 27
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'typename std::remove_reference<vector<Json> &>::type' (aka 'std::vector<eee::Json>') to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'typename std::remove_reference<vector<Json> &>::type' (aka 'std::vector<eee::Json>') to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_function_in_init",
+        "message": "No matching constructor for initialization of 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 16,
+            "line": 28
+          },
+          "start": {
+            "character": 14,
+            "line": 28
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 34
+                },
+                "start": {
+                  "character": 4,
+                  "line": 34
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'std::vector<eee::Json>' to 'const eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 40
+                },
+                "start": {
+                  "character": 4,
+                  "line": 40
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'std::vector<eee::Json>' to 'eee::Json' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 8,
+                  "line": 33
+                },
+                "start": {
+                  "character": 4,
+                  "line": 33
+                }
+              },
+              "uri": "file:///home/mingzi/Code/ejson/include/json.hpp"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 1 was provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_oper",
+        "message": "Type 'eee::Json' does not provide a subscript operator",
+        "range": {
+          "end": {
+            "character": 7,
+            "line": 29
+          },
+          "start": {
+            "character": 6,
+            "line": 29
+          }
+        },
+        "relatedInformation": [],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "no_member",
+        "message": "No member named 'insert' in 'eee::Json'",
+        "range": {
+          "end": {
+            "character": 15,
+            "line": 30
+          },
+          "start": {
+            "character": 9,
+            "line": 30
+          }
+        },
+        "relatedInformation": [],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_function_in_init",
+        "message": "No matching constructor for initialization of 'std::vector<eee::Json>'",
+        "range": {
+          "end": {
+            "character": 18,
+            "line": 31
+          },
+          "start": {
+            "character": 15,
+            "line": 31
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 563
+                },
+                "start": {
+                  "character": 6,
+                  "line": 563
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'double' to 'const std::vector<eee::Json>::value_type' (aka 'const eee::Json') for 2nd argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 629
+                },
+                "start": {
+                  "character": 6,
+                  "line": 629
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'std::vector<eee::Json>' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 634
+                },
+                "start": {
+                  "character": 6,
+                  "line": 634
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: no known conversion from 'int' to 'std::vector<eee::Json>' for 1st argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 7,
+                  "line": 701
+                },
+                "start": {
+                  "character": 1,
+                  "line": 701
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate template ignored: deduced conflicting types for parameter '_InputIterator' ('int' vs. 'double')"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 550
+                },
+                "start": {
+                  "character": 6,
+                  "line": 550
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires at most 2 arguments, but 3 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 618
+                },
+                "start": {
+                  "character": 6,
+                  "line": 618
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 2 arguments, but 3 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 653
+                },
+                "start": {
+                  "character": 6,
+                  "line": 653
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 2 arguments, but 3 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 672
+                },
+                "start": {
+                  "character": 6,
+                  "line": 672
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires at most 2 arguments, but 3 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 536
+                },
+                "start": {
+                  "character": 6,
+                  "line": 536
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires single argument '__a', but 3 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 595
+                },
+                "start": {
+                  "character": 6,
+                  "line": 595
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires single argument '__x', but 3 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 614
+                },
+                "start": {
+                  "character": 6,
+                  "line": 614
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 1 argument, but 3 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 12,
+                  "line": 525
+                },
+                "start": {
+                  "character": 6,
+                  "line": 525
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_vector.h"
+            },
+            "message": "Candidate constructor not viable: requires 0 arguments, but 3 were provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "ovl_no_viable_function_in_init",
+        "message": "No matching constructor for initialization of 'std::pair<std::string, eee::Json>' (aka 'pair<basic_string<char>, eee::Json>')",
+        "range": {
+          "end": {
+            "character": 19,
+            "line": 30
+          },
+          "start": {
+            "character": 16,
+            "line": 30
+          }
+        },
+        "relatedInformation": [
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 20,
+                  "line": 410
+                },
+                "start": {
+                  "character": 16,
+                  "line": 410
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: no known conversion from 'std::vector<eee::Json>' to 'const eee::Json' for 2nd argument"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 29,
+                  "line": 420
+                },
+                "start": {
+                  "character": 25,
+                  "line": 420
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '!_PCC<true, std::basic_string<char, std::char_traits<char>, std::allocator<char>>, eee::Json>::_ImplicitlyConvertiblePair()' was not satisfied [with _U1 = std::basic_string<char>, _U2 = eee::Json]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 486
+                },
+                "start": {
+                  "character": 1,
+                  "line": 486
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '__and_<std::__not_<std::is_reference<const char (&)[4]>>, std::is_pointer<eee::Json>, std::is_constructible<std::basic_string<char, std::char_traits<char>, std::allocator<char>>, const char (&)[4]>, std::__not_<std::is_constructible<std::basic_string<char, std::char_traits<char>, std::allocator<char>>, const char (&)[4]>>, std::is_convertible<const char (&)[4], std::basic_string<char, std::char_traits<char>, std::allocator<char>>>>::value' was not satisfied [with _U1 = const char (&)[4]]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 498
+                },
+                "start": {
+                  "character": 1,
+                  "line": 498
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '__and_<std::__not_<std::is_reference<const char (&)[4]>>, std::is_pointer<eee::Json>, std::is_constructible<std::basic_string<char, std::char_traits<char>, std::allocator<char>>, const char (&)[4]>, std::__not_<std::is_constructible<std::basic_string<char, std::char_traits<char>, std::allocator<char>>, const char (&)[4]>>, std::__not_<std::is_convertible<const char (&)[4], std::basic_string<char, std::char_traits<char>, std::allocator<char>>>>>::value' was not satisfied [with _U1 = const char (&)[4]]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 510
+                },
+                "start": {
+                  "character": 1,
+                  "line": 510
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '__and_<std::is_pointer<std::basic_string<char, std::char_traits<char>, std::allocator<char>>>, std::__not_<std::is_reference<std::vector<eee::Json, std::allocator<eee::Json>>>>, std::is_constructible<eee::Json, std::vector<eee::Json, std::allocator<eee::Json>>>, std::__not_<std::is_constructible<eee::Json, const std::vector<eee::Json, std::allocator<eee::Json>> &>>, std::is_convertible<std::vector<eee::Json, std::allocator<eee::Json>>, eee::Json>>::value' was not satisfied [with _U2 = std::vector<eee::Json>]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 522
+                },
+                "start": {
+                  "character": 1,
+                  "line": 522
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '__and_<std::is_pointer<std::basic_string<char, std::char_traits<char>, std::allocator<char>>>, std::__not_<std::is_reference<std::vector<eee::Json, std::allocator<eee::Json>>>>, std::is_constructible<eee::Json, std::vector<eee::Json, std::allocator<eee::Json>>>, std::__not_<std::is_constructible<eee::Json, const std::vector<eee::Json, std::allocator<eee::Json>> &>>, std::__not_<std::is_convertible<std::vector<eee::Json, std::allocator<eee::Json>>, eee::Json>>>::value' was not satisfied [with _U2 = std::vector<eee::Json>]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 15,
+                  "line": 533
+                },
+                "start": {
+                  "character": 11,
+                  "line": 533
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '_PCC<true, std::basic_string<char, std::char_traits<char>, std::allocator<char>>, eee::Json>::_MoveConstructiblePair()' was not satisfied [with _U1 = const char (&)[4], _U2 = std::vector<eee::Json>]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 24,
+                  "line": 542
+                },
+                "start": {
+                  "character": 20,
+                  "line": 542
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate template ignored: requirement '_PCC<true, std::basic_string<char, std::char_traits<char>, std::allocator<char>>, eee::Json>::_MoveConstructiblePair()' was not satisfied [with _U1 = const char (&)[4], _U2 = std::vector<eee::Json>]"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 20,
+                  "line": 194
+                },
+                "start": {
+                  "character": 16,
+                  "line": 194
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor not viable: requires 1 argument, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 20,
+                  "line": 195
+                },
+                "start": {
+                  "character": 16,
+                  "line": 195
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor not viable: requires 1 argument, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 22,
+                  "line": 437
+                },
+                "start": {
+                  "character": 18,
+                  "line": 437
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 24,
+                  "line": 446
+                },
+                "start": {
+                  "character": 20,
+                  "line": 446
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 15,
+                  "line": 552
+                },
+                "start": {
+                  "character": 11,
+                  "line": 552
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 24,
+                  "line": 562
+                },
+                "start": {
+                  "character": 20,
+                  "line": 562
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 199
+                },
+                "start": {
+                  "character": 1,
+                  "line": 199
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires 3 arguments, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 20,
+                  "line": 383
+                },
+                "start": {
+                  "character": 16,
+                  "line": 383
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires 0 arguments, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 29,
+                  "line": 395
+                },
+                "start": {
+                  "character": 25,
+                  "line": 395
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires 0 arguments, but 2 were provided"
+          },
+          {
+            "location": {
+              "range": {
+                "end": {
+                  "character": 5,
+                  "line": 216
+                },
+                "start": {
+                  "character": 1,
+                  "line": 216
+                }
+              },
+              "uri": "file:///usr/include/c%2B%2B/12.2.1/bits/stl_pair.h"
+            },
+            "message": "Candidate constructor template not viable: requires 4 arguments, but 2 were provided"
+          }
+        ],
+        "severity": 1,
+        "source": "clang"
+      },
+      {
+        "code": "fatal_too_many_errors",
+        "message": "Too many errors emitted, stopping now",
+        "range": {
+          "end": {
+            "character": 0,
+            "line": 0
+          },
+          "start": {
+            "character": 0,
+            "line": 0
+          }
+        },
+        "relatedInformation": [],
+        "severity": 1,
+        "source": "clang"
+      }
+    ],
+    "uri": "file:///home/mingzi/Code/ejson/test.cpp",
+    "version": 0
+  }
+}\n\nV[
+  22: 01: 36.017
+] ASTWorker running DocumentSymbols on version 0 of /home/mingzi/Code/ejson/test.cpp\nI[
+  22: 01: 36.017
+] --> reply:textDocument/documentSymbol(2) 796 ms\nV[
+  22: 01: 36.017
+] >>> {
+  "id": 2,
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "detail": "void ()",
+      "kind": 12,
+      "name": "test0",
+      "range": {
+        "end": {
+          "character": 7,
+          "line": 11
+        },
+        "start": {
+          "character": 0,
+          "line": 6
+        }
+      },
+      "selectionRange": {
+        "end": {
+          "character": 10,
+          "line": 6
+        },
+        "start": {
+          "character": 5,
+          "line": 6
+        }
+      }
+    },
+    {
+      "detail": "void ()",
+      "kind": 12,
+      "name": "test1",
+      "range": {
+        "end": {
+          "character": 1,
+          "line": 39
+        },
+        "start": {
+          "character": 0,
+          "line": 13
+        }
+      },
+      "selectionRange": {
+        "end": {
+          "character": 10,
+          "line": 13
+        },
+        "start": {
+          "character": 5,
+          "line": 13
+        }
+      }
+    },
+    {
+      "detail": "auto () -> int",
+      "kind": 12,
+      "name": "main",
+      "range": {
+        "end": {
+          "character": 1,
+          "line": 45
+        },
+        "start": {
+          "character": 0,
+          "line": 41
+        }
+      },
+      "selectionRange": {
+        "end": {
+          "character": 9,
+          "line": 41
+        },
+        "start": {
+          "character": 5,
+          "line": 41
+        }
+      }
+    }
+  ]
+}\n\nI[
+  22: 01: 36.017
+] --> reply:textDocument/semanticTokens/full(3) 755 ms, error: Task was cancelled.\nV[
+  22: 01: 36.017
+] >>> {
+  "error": {
+    "code": -32800,
+    "message": "Request cancelled"
+  },
+  "id": 3,
+  "jsonrpc": "2.0"
+}\n\nV[
+  22: 01: 36.017
+] ASTWorker running EnumerateTweaks on version 0 of /home/mingzi/Code/ejson/test.cpp\nI[
+  22: 01: 36.017
+] --> reply:textDocument/codeAction(4) 416 ms\nV[
+  22: 01: 36.017
+] >>> {
+  "id": 4,
+  "jsonrpc": "2.0",
+  "result": []
+}\n\nV[
+  22: 01: 36.017
+] ASTWorker running SemanticHighlights on version 0 of /home/mingzi/Code/ejson/test.cpp\nI[
+  22: 01: 36.017
+] --> reply:textDocument/semanticTokens/full(5) 224 ms\nV[
+  22: 01: 36.017
+] >>> {
+  "id": 5,
+  "jsonrpc": "2.0",
+  "result": {
+    "data": [
+      6,
+      5,
+      5,
+      3,
+      8193,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      6,
+      8,
+      4352,
+      0,
+      7,
+      1,
+      1,
+      1025,
+      1,
+      9,
+      4,
+      1,
+      1025,
+      0,
+      18,
+      1,
+      1,
+      1024,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      6,
+      8,
+      4352,
+      0,
+      7,
+      1,
+      1,
+      1025,
+      0,
+      4,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      8,
+      3,
+      8192,
+      0,
+      14,
+      5,
+      14,
+      2176,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      4,
+      0,
+      8448,
+      0,
+      8,
+      1,
+      1,
+      1024,
+      3,
+      5,
+      5,
+      3,
+      8193,
+      1,
+      4,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      4,
+      8,
+      8192,
+      0,
+      5,
+      4,
+      1,
+      1025,
+      0,
+      5,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      6,
+      8,
+      4096,
+      2,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      6,
+      8,
+      4352,
+      0,
+      7,
+      3,
+      1,
+      1025,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      6,
+      8,
+      4352,
+      0,
+      7,
+      5,
+      1,
+      1025,
+      1,
+      8,
+      1,
+      1,
+      1025,
+      1,
+      4,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      4,
+      8,
+      8192,
+      0,
+      5,
+      1,
+      1,
+      1025,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      4,
+      8,
+      8448,
+      0,
+      5,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      6,
+      8,
+      4352,
+      0,
+      8,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      4,
+      8,
+      8192,
+      0,
+      6,
+      2,
+      1,
+      1025,
+      1,
+      4,
+      4,
+      1,
+      1024,
+      0,
+      12,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      4,
+      3,
+      8448,
+      1,
+      4,
+      4,
+      1,
+      1024,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      6,
+      8,
+      8448,
+      0,
+      7,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      4,
+      8,
+      8192,
+      0,
+      6,
+      2,
+      1,
+      1025,
+      2,
+      18,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      6,
+      8,
+      4352,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      6,
+      8,
+      8448,
+      0,
+      7,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      4,
+      8,
+      8192,
+      0,
+      6,
+      2,
+      1,
+      1025,
+      1,
+      4,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      4,
+      8,
+      8192,
+      0,
+      5,
+      2,
+      1,
+      1025,
+      0,
+      3,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      4,
+      3,
+      8448,
+      0,
+      5,
+      2,
+      1,
+      1536,
+      1,
+      4,
+      3,
+      15,
+      8192,
+      0,
+      5,
+      4,
+      8,
+      8192,
+      0,
+      5,
+      2,
+      1,
+      1025,
+      0,
+      3,
+      2,
+      1,
+      1024,
+      2,
+      4,
+      4,
+      1,
+      1024,
+      5,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      4,
+      0,
+      8448,
+      0,
+      8,
+      4,
+      1,
+      1024,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      4,
+      0,
+      8448,
+      0,
+      8,
+      1,
+      1,
+      1024,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      4,
+      0,
+      8448,
+      0,
+      8,
+      2,
+      1,
+      1024,
+      1,
+      4,
+      3,
+      15,
+      8448,
+      0,
+      5,
+      4,
+      0,
+      8448,
+      0,
+      8,
+      2,
+      1,
+      1024,
+      3,
+      5,
+      4,
+      3,
+      8193,
+      1,
+      4,
+      5,
+      3,
+      8192,
+      1,
+      4,
+      5,
+      3,
+      8192
+    ],
+    "resultId": "1"
+  }
+}
