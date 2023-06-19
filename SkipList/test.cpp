@@ -6,6 +6,9 @@
 #include <map>
 
 constexpr int N = 1e5;
+
+//NOtE N = 1e5 about 0.2s/
+
 auto main() -> int {
   std::cout << std::fixed << std::setprecision (7);
   std::clock_t s = std::clock();
@@ -42,8 +45,8 @@ auto main() -> int {
       L.erase(key);
       M.erase(key);
     } else {
-      int r1 = L.find(key).second ;
-      int r2 = M.count(key) ? M[key] : 0;
+      bool r1 = L.contains(key);
+      bool r2 = M.contains(key);
       assert(r1 == r2);
     }
   }
@@ -53,6 +56,5 @@ auto main() -> int {
 
   std::clock_t e = std::clock();
   std::cout << "Time elapsed: " << (double)(e - s) / CLOCKS_PER_SEC << std::endl;
-  // about 0.2s/
 
 }

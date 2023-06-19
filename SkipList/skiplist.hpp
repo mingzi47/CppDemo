@@ -49,13 +49,13 @@ private:
 public:
   SkipList();
   auto random_level() -> int;
-  auto find(K key) -> std::pair<Nptr, bool>;
-  auto insert(K key, V value) -> bool;
-  auto erase(K key) -> bool;
+  auto find(const K& key) -> std::pair<Nptr, bool>;
+  auto insert(const K& key, const V& value) -> bool;
+  auto erase(const K& key) -> bool;
   auto begin() -> Iter;
   auto end() -> Iter;
-  auto operator[](K key) -> V &;
-  auto contains(K key) -> bool;
+  auto operator[](const K& key) -> V &;
+  auto contains(const K& key) -> bool;
 };
 
 template <typename K, typename V, typename Comp>
@@ -76,7 +76,7 @@ auto SkipList<K, V, Comp>::random_level() -> int {
 }
 
 template <typename K, typename V, typename Comp>
-auto SkipList<K, V, Comp>::find(K key) -> std::pair<Nptr, bool> {
+auto SkipList<K, V, Comp>::find(const K& key) -> std::pair<Nptr, bool> {
   Nptr tmp = head;
   for (int i = cur_level; i >= 0; --i) {
     while (tmp->forward[i] != tail && cmp(tmp->forward[i]->key, key))
@@ -90,14 +90,14 @@ auto SkipList<K, V, Comp>::find(K key) -> std::pair<Nptr, bool> {
 }
 
 template <typename K, typename V, typename Comp>
-auto SkipList<K, V, Comp>::insert(K key, V value) -> bool {
+auto SkipList<K, V, Comp>::insert(const K& key, const V& value) -> bool {
   auto [tmp, status] = find(key);
   operator[](key) = value;
   return true;
 }
 
 template <typename K, typename V, typename Comp>
-auto SkipList<K, V, Comp>::erase(K key) -> bool {
+auto SkipList<K, V, Comp>::erase(const K& key) -> bool {
   auto [tmp, status] = find(key);
   if (!status) {
     return false;
@@ -120,7 +120,7 @@ auto SkipList<K, V, Comp>::end() -> Iter {
 }
 
 template <typename K, typename V, typename Comp>
-auto SkipList<K, V, Comp>::operator[](K key) -> V & {
+auto SkipList<K, V, Comp>::operator[](const K& key) -> V & {
   auto [tmp, status] = find(key);
   if (status) {
     return tmp->forward[0]->value;
@@ -141,7 +141,7 @@ auto SkipList<K, V, Comp>::operator[](K key) -> V & {
 }
 
 template <typename K, typename V, typename Comp>
-auto SkipList<K, V, Comp>::contains(K key) -> bool {
+auto SkipList<K, V, Comp>::contains(const K& key) -> bool {
   auto [tmp, status] = find(key);
   return status;
 }
