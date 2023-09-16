@@ -60,6 +60,87 @@ index_img: /images/Cpp/基于Cpp的红黑树/my_rbt.png
 
 ![case5](./基于Cpp的红黑树/insert_case5.png)
 
+```cpp
+TEMPLATE_RBT_M_FUNC switch_insert(details::RBPtr<K, V> &node)->void {
+  auto uncle = get_uncle(node);
+  auto father = get_father(node);
+  auto grandfather = get_grandfather(node);
+  const bool case1 = (father == nullptr);
+  const bool case2 =
+      (father != nullptr and father->color == details::Color::BLACK);
+
+  const bool case3 =
+      ((father != nullptr and father->color == details::Color::RED) and
+       (uncle != nullptr and uncle->color == details::Color::RED));
+  const bool tmp =
+      ((uncle == nullptr or uncle->color == details::Color::BLACK) and
+       (father != nullptr and father->color == details::Color::RED));
+  const bool case4 = (tmp and node->attribute == father->attribute);
+  const bool case5 = (tmp and node->attribute != father->attribute);
+
+  if (case1) {
+    node->color = details::Color::BLACK;
+    return;
+  } else if (case2) {
+    return;
+  } else if (case3) {
+    father->color = details::Color::BLACK;
+    uncle->color = details::Color::BLACK;
+    grandfather->color = details::Color::RED;
+    switch_insert(grandfather);
+  } else if (case4) {
+    switch (node->attribute) {
+    // clang-format off
+    //        G(B)             N(B)
+    //       /  \   right(G)  /  \
+    //      N(R) U(B)  ===>  P(R) G(R)
+    //     /                        \
+    //    P(R)                       U(B)
+    // clang-format on
+    case details::Attribute::LEFT_CHILD:
+      rotate_right(grandfather);
+      break;
+    // clang-format off
+    //        G(B)             N(B)
+    //       /  \    left(G)  /  \
+    //      U(B) N(R)  ===>  G(R) P(R)
+    //             \        /
+    //              P(R)   U(B)
+    // clang-format on
+    case details::Attribute::RIGHT_CHILD:
+      rotate_left(grandfather);
+      break;
+    }
+    grandfather->color = details::Color::RED;
+    father->color = details::Color::BLACK;
+  } else if (case5) {
+    switch (node->attribute) {
+    // clang-format off
+    //        G(B)              G(B)
+    //       /  \    right(P)   /  \
+    //      U(B) P(R)  ====>  U(B) N(R)
+    //          /                    \
+    //         N(R)                   P(R)
+    // clang-format on
+    case details::Attribute::LEFT_CHILD:
+      rotate_right(father);
+      break;
+    // clang-format off
+    //        G(B)                G(B)
+    //       /   \    left(P)     /  \
+    //      P(R)  U(B)  ====>   N(R) U(B)
+    //       \                 /
+    //        N(R)            P(R)
+    // clang-format on
+    case details::Attribute::RIGHT_CHILD:
+      rotate_left(father);
+      break;
+    }
+    // 最下面的点
+    switch_insert(father);
+  }
+}
+```
 
 ## 删除
 
@@ -134,6 +215,210 @@ index_img: /images/Cpp/基于Cpp的红黑树/my_rbt.png
 
 ![要删除的节点是 N ](./基于Cpp的红黑树/remove_case5.png)
 
+```cpp
+EMPLATE_RBT_M_FUNC switch_remove(details::RBPtr<K, V> &node, bool op)->void {
+  // Case 3
+  // 中，我们会递归向上来调整，但是这时我们以经不在需要删除点了，但是还要递归
+  // switch_remove 这个函数，使用一个 op 来记录调用这次函数时，是否要执行
+  // remove_node() 函数
+  auto father = get_father(node);
+  if (node->attribute == details::Attribute::ROOT and
+      node->r_node == nullptr and node->r_node) {
+    root_node = nullptr;
+    return;
+  }
+
+  //
+  auto change_node = [&](details::RBPtr<K, V> &f, details::RBPtr<K, V> &c,
+                         details::Attribute attr) -> details::RBPtr<K, V> {
+    if (c == nullptr)
+      return nullptr;
+    c->f_node = f;
+    c->attribute = attr;
+    return c;
+  };
+
+  // 红色的叶子节点与只有一个节点的红色节点
+  if (node->color == details::Color::RED and
+      (node->r_node == nullptr or node->l_node == nullptr)) {
+    switch (node->attribute) {
+    case details::Attribute::LEFT_CHILD: {
+      father->l_node = change_node(
+          father, (node->r_node != nullptr ? node->r_node : node->l_node),
+          details::Attribute::LEFT_CHILD);
+      return;
+    }
+    case details::Attribute::RIGHT_CHILD: {
+      father->r_node = change_node(
+          father, (node->r_node != nullptr ? node->r_node : node->l_node),
+          details::Attribute::RIGHT_CHILD);
+      return;
+    }
+    }
+  }
+
+  // 有两个子节点, 会先尝试替换前驱和后继，在判断是否需要调整
+  if (node->r_node != nullptr and node->l_node != nullptr) {
+    auto prev_node = [&]() -> details::RBPtr<K, V> {
+      for (auto i = node->l_node; i != nullptr; i = i->r_node) {
+        if (i->r_node == nullptr)
+          return i;
+      }
+      return nullptr;
+    }();
+    auto suf_node = [&]() -> details::RBPtr<K, V> {
+      for (auto i = node->r_node; i != nullptr; i = i->l_node) {
+        if (i->l_node == nullptr)
+          return i;
+      }
+      return nullptr;
+    }();
+
+    auto swap_node = [&](details::RBPtr<K, V> &left,
+                         details::RBPtr<K, V> &right) {
+      left.swap(right);
+      swap_color(left, right);
+      if (left->r_node != nullptr)
+        left->r_node->f_node = left;
+      if (left->l_node != nullptr)
+        left->l_node->f_node = left;
+      if (right->r_node != nullptr)
+        right->r_node->f_node = right;
+      if (right->l_node != nullptr)
+        right->l_node->f_node = right;
+    };
+    // 被删除的节点是红色
+    if ((prev_node->color == details::Color::RED or
+         suf_node->color == details::Color::RED) and
+        node->color == details::Color::RED) {
+      swap_node(node, (prev_node->color == details::Color::RED ? prev_node
+                                                               : suf_node));
+      switch_remove(node);
+    }
+
+    // 需要调整的情况
+    swap_node(node, prev_node);
+  }
+
+  // 下面是调整的步骤
+  auto sibling = get_sibling(node);
+  auto close_nephew = get_close_nephew(node);
+  auto distant_nephw = get_distant_nephew(node);
+  father = get_father(node);
+
+  bool all_exist = (father != nullptr and sibling != nullptr and
+                    close_nephew != nullptr and distant_nephw != nullptr);
+
+  auto remove_node = [&](details::RBPtr<K, V> &d_node) {
+    assert(d_node->l_node == nullptr or d_node->r_node == nullptr);
+    assert(d_node->f_node.lock() != nullptr);
+    auto father = d_node->f_node.lock();
+    switch (d_node->attribute) {
+    case details::Attribute::LEFT_CHILD: {
+      father->l_node = change_node(
+          father, (d_node->r_node == nullptr ? d_node->l_node : d_node->r_node),
+          details::Attribute::LEFT_CHILD);
+      return;
+    }
+    case details::Attribute::RIGHT_CHILD: {
+      father->r_node = change_node(
+          father, (d_node->r_node == nullptr ? d_node->l_node : d_node->r_node),
+          details::Attribute::RIGHT_CHILD);
+      return;
+    }
+    }
+  };
+  // Case 1
+  if (all_exist and
+      equal_color(details::Color::BLACK, father, close_nephew,
+                  distant_nephw) and
+      equal_color(details::Color::RED, sibling)) {
+    swap_color(sibling, father);
+    switch (node->attribute) {
+    case details::Attribute::LEFT_CHILD: {
+      rotate_left(father);
+      break;
+    }
+    case details::Attribute::RIGHT_CHILD: {
+      rotate_right(father);
+      break;
+    }
+    }
+    if (op)
+      remove_node(node);
+    return;
+  }
+
+  // Case 2
+  if (all_exist and
+      equal_color(details::Color::BLACK, sibling, close_nephew,
+                  distant_nephw) and
+      equal_color(details::Color::RED, father)) {
+    swap_color(sibling, father);
+    if (op)
+      remove_node(node);
+    return;
+  }
+
+  // Case 3 并不需要所有节点都存在，侄子节点如果是黑色的，可以是空节点。
+  const bool case3_node_exist = (father != nullptr and sibling != nullptr);
+  const bool case3_nephew =
+      ((close_nephew == nullptr and
+        distant_nephw == nullptr) or // 两个侄子节点都不存在, 也是为黑色
+       (close_nephew != nullptr and distant_nephw == nullptr and
+        close_nephew->color == details::Color::BLACK) or
+       (close_nephew == nullptr and distant_nephw != nullptr and
+        distant_nephw->color == details::Color::BLACK) or
+       (all_exist and
+        equal_color(details::Color::BLACK, close_nephew, distant_nephw)));
+  ;
+  if (case3_node_exist and
+      equal_color(details::Color::BLACK, father, sibling) and case3_nephew) {
+    sibling->color = details::Color::RED;
+    if (op)
+      remove_node(node);
+    switch_remove(father, false);
+    return;
+  }
+
+  // Case 4
+  if (all_exist and
+      equal_color(details::Color::BLACK, sibling, distant_nephw) and
+      equal_color(details::Color::RED, close_nephew)) {
+    switch (node->attribute) {
+    case details::Attribute::LEFT_CHILD:
+      rotate_right(sibling);
+    case details::Attribute::RIGHT_CHILD:
+      rotate_left(sibling);
+    }
+    swap_color(sibling, close_nephew);
+  }
+
+  // Case 5
+  sibling = get_sibling(node);
+  distant_nephw = get_distant_nephew(node);
+  father = get_father(node);
+  const bool case5_node_exist =
+      (father != nullptr and sibling != nullptr and distant_nephw != nullptr);
+  if (case5_node_exist and equal_color(details::Color::BLACK, sibling) and
+      equal_color(details::Color::RED, distant_nephw)) {
+    switch (node->attribute) {
+    case details::Attribute::LEFT_CHILD: {
+      rotate_left(father);
+      break;
+    }
+    case details::Attribute::RIGHT_CHILD: {
+
+      rotate_right(father);
+      break;
+    }
+    }
+    swap_color(sibling, father);
+    distant_nephw->color = details::Color::BLACK;
+  }
+}
+```
+
 ## 性能和调试
 
 ```bash
@@ -142,6 +427,8 @@ gcc : 13.2.1
 ```
 
 **性能与 `std::map` 还有很大 3 ~ 4 倍的差距，插入的性能会更差些。**
+
+测试
 
 ```cpp
 constexpr int N = 1e6;

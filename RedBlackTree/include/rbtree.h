@@ -7,12 +7,10 @@
 #include <iostream>
 #include <memory>
 
-#define TEMPLATE_NODE template <typename K, typename V>
-#define TEMPLATE_RBT_M                                                         \
-  template <typename K, typename V, typename Compare>                          \
-  auto Rbtree<K, V, Compare>::
-#define TEMPLATE_RBT_C                                                         \
-  template <typename K, typename V, typename Compare> Rbtree<K, V, Compare>::
+#define TEMPLATE_KV template <typename K, typename V>
+#define TEMPLATE_RBT_M_FUNC                                                    \
+  template <typename K, typename V> auto Rbtree<K, V>::
+#define TEMPLATE_RBT_C_FUNC template <typename K, typename V> Rbtree<K, V>::
 
 namespace rbt {
 namespace details {
@@ -47,12 +45,12 @@ template <typename K, typename V> struct Node {
 template <typename K, typename V>
 using RBPtr = std::shared_ptr<details::Node<K, V>>;
 
-TEMPLATE_NODE
+TEMPLATE_KV
 auto get_father(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   return node->f_node.lock();
 }
 
-TEMPLATE_NODE
+TEMPLATE_KV
 auto get_uncle(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   auto father = get_father(node);
   if (father == nullptr)
@@ -67,7 +65,7 @@ auto get_uncle(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   return grandfather->l_node;
 }
 
-TEMPLATE_NODE
+TEMPLATE_KV
 auto get_grandfather(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   auto father = get_father(node);
   if (father != nullptr)
@@ -75,7 +73,7 @@ auto get_grandfather(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   return nullptr;
 }
 
-TEMPLATE_NODE
+TEMPLATE_KV
 auto get_sibling(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   auto father = get_father(node);
   if (father == nullptr)
@@ -89,7 +87,7 @@ auto get_sibling(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   return nullptr;
 }
 
-TEMPLATE_NODE
+TEMPLATE_KV
 auto get_close_nephew(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   auto sibling = get_sibling(node);
   if (sibling == nullptr)
@@ -103,7 +101,7 @@ auto get_close_nephew(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   return nullptr;
 };
 
-TEMPLATE_NODE
+TEMPLATE_KV
 auto get_distant_nephew(const RBPtr<K, V> &node) -> RBPtr<K, V> {
   auto sibling = get_sibling(node);
   if (sibling == nullptr)
@@ -123,7 +121,7 @@ auto equal_color(Color color, Args &&...args) -> bool {
   return res;
 }
 
-TEMPLATE_NODE
+TEMPLATE_KV
 auto swap_color(RBPtr<K, V> &a, RBPtr<K, V> &b) {
   auto tmp = a->color;
   a->color = b->color;
@@ -132,21 +130,20 @@ auto swap_color(RBPtr<K, V> &a, RBPtr<K, V> &b) {
 
 } // namespace details
 
-template <typename K, typename V, typename Compare = std::less<K>()>
-class Rbtree {
+template <typename K, typename V> class Rbtree {
 public:
   Rbtree() = default;
   Rbtree(const Rbtree &value);
   auto operator=(const Rbtree &value) -> Rbtree &;
-  Rbtree(Rbtree &&value);
-  auto operator=(Rbtree &&value) -> Rbtree &;
+  Rbtree(Rbtree &&value) noexcept;
+  auto operator=(Rbtree &&value) noexcept -> Rbtree &;
 
   auto insert(K key, V value) -> void;
   auto remove(K key) -> void;
   auto modify(K key, V value) -> void;
   auto contains(K key) -> bool;
   auto operator[](const K &key) -> V &;
-  auto swap(Rbtree &value) -> void;
+  auto swap(Rbtree &value) noexcept -> void;
 
   // debug
   auto draw(std::filesystem::path pathname) -> void;
@@ -164,7 +161,7 @@ private:
   details::RBPtr<K, V> root_node;
 };
 
-TEMPLATE_RBT_M rotate_left(details::RBPtr<K, V> &X)->void {
+TEMPLATE_RBT_M_FUNC rotate_left(details::RBPtr<K, V> &X)->void {
   // clang-format off
   // X                  Y
   //  \                / \
@@ -212,7 +209,7 @@ TEMPLATE_RBT_M rotate_left(details::RBPtr<K, V> &X)->void {
   X->attribute = details::Attribute::LEFT_CHILD;
 }
 
-TEMPLATE_RBT_M rotate_right(details::RBPtr<K, V> &X)->void {
+TEMPLATE_RBT_M_FUNC rotate_right(details::RBPtr<K, V> &X)->void {
   // clang-format off
   //     X                 Y
   //    /                 / \
@@ -258,7 +255,7 @@ TEMPLATE_RBT_M rotate_right(details::RBPtr<K, V> &X)->void {
   X->attribute = details::Attribute::RIGHT_CHILD;
 }
 
-TEMPLATE_RBT_M
+TEMPLATE_RBT_M_FUNC
 details_find(K key)->details::RBPtr<K, V> {
   if (root_node == nullptr)
     return nullptr;
@@ -279,7 +276,7 @@ details_find(K key)->details::RBPtr<K, V> {
   return nullptr;
 }
 
-TEMPLATE_RBT_M
+TEMPLATE_RBT_M_FUNC
 details_insert(K key, V value)->details::RBPtr<K, V> {
   if (root_node == nullptr) {
     root_node = std::make_shared<details::Node<K, V>>(
@@ -302,16 +299,16 @@ details_insert(K key, V value)->details::RBPtr<K, V> {
   return res->r_node;
 }
 
-TEMPLATE_RBT_C
+TEMPLATE_RBT_C_FUNC
 Rbtree(const Rbtree &value) { root_node = value.root_node; }
-TEMPLATE_RBT_M
+TEMPLATE_RBT_M_FUNC
 operator=(const Rbtree &value)->Rbtree & { root_node = value.root_node; }
-TEMPLATE_RBT_C
-Rbtree(Rbtree &&value) { this->swap(value); }
-TEMPLATE_RBT_M
-operator=(Rbtree &&value)->Rbtree & { this->swap(value); }
+TEMPLATE_RBT_C_FUNC
+Rbtree(Rbtree &&value) noexcept { this->swap(value); }
+TEMPLATE_RBT_M_FUNC
+operator=(Rbtree &&value) noexcept -> Rbtree & { this->swap(value); }
 
-TEMPLATE_RBT_M switch_insert(details::RBPtr<K, V> &node)->void {
+TEMPLATE_RBT_M_FUNC switch_insert(details::RBPtr<K, V> &node)->void {
   auto uncle = get_uncle(node);
   auto father = get_father(node);
   auto grandfather = get_grandfather(node);
@@ -391,13 +388,16 @@ TEMPLATE_RBT_M switch_insert(details::RBPtr<K, V> &node)->void {
   }
 }
 
-TEMPLATE_RBT_M insert(K key, V value)->void {
+TEMPLATE_RBT_M_FUNC insert(K key, V value)->void {
   auto node = details_insert(key, value);
   switch_insert(node);
 }
 
-TEMPLATE_RBT_M switch_remove(details::RBPtr<K, V> &node, bool op)->void {
-  // Case 3 中，我们会递归向上来调整，但是这时我们以经不在需要删除点了，但是还要递归 switch_remove 这个函数，使用一个 op 来记录调用这次函数时，是否要执行 remove_node() 函数
+TEMPLATE_RBT_M_FUNC switch_remove(details::RBPtr<K, V> &node, bool op)->void {
+  // Case 3
+  // 中，我们会递归向上来调整，但是这时我们以经不在需要删除点了，但是还要递归
+  // switch_remove 这个函数，使用一个 op 来记录调用这次函数时，是否要执行
+  // remove_node() 函数
   auto father = get_father(node);
   if (node->attribute == details::Attribute::ROOT and
       node->r_node == nullptr and node->r_node) {
@@ -405,7 +405,7 @@ TEMPLATE_RBT_M switch_remove(details::RBPtr<K, V> &node, bool op)->void {
     return;
   }
 
-  // 
+  //
   auto change_node = [&](details::RBPtr<K, V> &f, details::RBPtr<K, V> &c,
                          details::Attribute attr) -> details::RBPtr<K, V> {
     if (c == nullptr)
@@ -507,7 +507,8 @@ TEMPLATE_RBT_M switch_remove(details::RBPtr<K, V> &node, bool op)->void {
   };
   // Case 1
   if (all_exist and
-      equal_color(details::Color::BLACK, father, close_nephew, distant_nephw) and
+      equal_color(details::Color::BLACK, father, close_nephew,
+                  distant_nephw) and
       equal_color(details::Color::RED, sibling)) {
     swap_color(sibling, father);
     switch (node->attribute) {
@@ -594,38 +595,38 @@ TEMPLATE_RBT_M switch_remove(details::RBPtr<K, V> &node, bool op)->void {
   }
 }
 
-TEMPLATE_RBT_M remove(K key)->void {
+TEMPLATE_RBT_M_FUNC remove(K key)->void {
   auto node = details_find(key);
   if (node == nullptr or node->key != key)
     return;
   switch_remove(node);
 }
 
-TEMPLATE_RBT_M modify(K key, V value)->void {
+TEMPLATE_RBT_M_FUNC modify(K key, V value)->void {
   auto res = details_find(key);
   if (res->key != key)
     throw;
   res->value = value;
 }
-TEMPLATE_RBT_M contains(K key)->bool {
+TEMPLATE_RBT_M_FUNC contains(K key)->bool {
   auto res = details_find(key);
   if (res == nullptr)
     return false;
   return res->key == key;
 }
 
-TEMPLATE_RBT_M operator[](const K &key)->V & {
+TEMPLATE_RBT_M_FUNC operator[](const K &key)->V & {
   auto res = details_find(key);
   if (res->key == key)
     return res->value;
   insert(key, V{});
   return details_find(key)->value;
 }
-TEMPLATE_RBT_M swap(Rbtree &value)->void {
+TEMPLATE_RBT_M_FUNC swap(Rbtree &value) noexcept -> void {
   std::swap(root_node, value->root_node);
 }
 
-TEMPLATE_RBT_M draw(std::filesystem::path pathname)->void {
+TEMPLATE_RBT_M_FUNC draw(std::filesystem::path pathname)->void {
   std::ofstream dot(pathname);
   dot << "graph rbtree {\n";
   auto dfs = [&dot](auto dfs, details::RBPtr<K, V> &node) -> void {
@@ -662,6 +663,6 @@ TEMPLATE_RBT_M draw(std::filesystem::path pathname)->void {
 
 } // namespace rbt
 
-#undef TEMPLATE_NODE
-#undef TEMPLATE_RBT_C
-#undef TEMPLATE_RBT_M
+#undef TEMPLATE_KV
+#undef TEMPLATE_RBT_C_FUNC
+#undef TEMPLATE_RBT_M_FUNC
