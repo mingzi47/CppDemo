@@ -5,44 +5,48 @@
 #include <map>
 #include <rbtree.h>
 
-constexpr int N = 1e5;
+constexpr int N = 1e6;
 #define CLAC_TIME(start)                                                       \
   std::chrono::duration_cast<std::chrono::milliseconds>(                       \
       std::chrono::steady_clock::now() - start)                                \
       .count()
 
-auto main() -> int {
-  auto start = std::chrono::steady_clock::now();
+auto test_map() -> void {
   std::map<int, int> map;
-  rbt::Rbtree<int, int> rbt;
-  std::cout << "\n TEST START \n";
-
-  std::cout << "\n TEST Insert \n";
+  auto start = std::chrono::steady_clock::now();
   for (int i = 0; i <= N; ++i) {
-    // map.insert({i, i});
-    rbt.insert(i, i);
+    map.insert({i, i});
   }
-
-
-  std::cout << "Insert : " << CLAC_TIME(start) << " ms \n";
-
-  auto start2 = std::chrono::steady_clock::now();
-
-  std::cout << "\n TEST Find and Remove \n";
+  std::cout << std::format("map insert : {} ms\n", CLAC_TIME(start));
+  start = std::chrono::steady_clock::now();
   for (int i = 0; i <= N; ++i) {
     if (i & 1) {
-      // assert(map[i] == rbt[i]);
-      // assert(map[i] == i);
-      assert(rbt[i] == i);
+      assert(map[i] == i);
     } else {
-      // map.erase(i);
-      // rbt.remove(i);
+      map.erase(i);
     }
   }
-  rbt.draw("test.dot");
+  std::cout << std::format("map remove : {} ms\n", CLAC_TIME(start));
+}
 
-  std::cout << "Find and Remove : " << CLAC_TIME(start2) << " ms \n";
-
-  std::cout << "Total : " << CLAC_TIME(start) << " ms \n";
-  std::cout << "\n TEST END \n";
+auto test_rbt() -> void {
+  rbt::Rbtree<int, int> rbt;
+  auto start = std::chrono::steady_clock::now();
+  for (int i = 0; i <= N; ++i) {
+    rbt.insert(i, i);
+  }
+  std::cout << std::format("rbt insert : {} ms\n", CLAC_TIME(start));
+  start = std::chrono::steady_clock::now();
+  for (int i = 0; i <= N; ++i) {
+    if (i & 1) {
+      assert(rbt[i] == i);
+    } else {
+      rbt.remove(i);
+    }
+  }
+  std::cout << std::format("rbt remove : {} ms\n", CLAC_TIME(start));
+}
+auto main() -> int {
+  test_map();
+  test_rbt();
 }
